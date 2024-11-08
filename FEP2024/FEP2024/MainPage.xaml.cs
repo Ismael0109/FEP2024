@@ -14,5 +14,30 @@ namespace FEP2024
         {
             InitializeComponent();
         }
+
+        private void btAna_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btIsmael_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TelaCadastro());
+        }
+
+        private void btKarol_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btLuisa_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btMi_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
