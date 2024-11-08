@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.TelaCadastro">
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20" Spacing="10">
+            <!--Criação de Usuário-->
+            <Entry x:Name="UsuariaEntry" Placeholder="Crie um nome de Usuária" />
+            
+            <!--Digitação de e-mail-->
+            <Entry x:Name="EmailEntry" Placeholder="Digite seu E-mail" Keyboard="Email"/>
+            
+            <!--Criação de Senha-->
+            <Entry x:Name="SenhaEntry" Placeholder="Crie uma Senha" />
+            
+            <!--Button "Criar Conta" -->
+            <Button Text="Criar Conta" x:Name="CriarContaBt" Clicked="CriarContaBt_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
