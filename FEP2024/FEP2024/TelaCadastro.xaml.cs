@@ -18,7 +18,7 @@ namespace FEP2024
             InitializeComponent();
         }
 
-        private void CriarContaBt_Clicked(object sender, EventArgs e)
+        private async void CriarContaBt_Clicked(object sender, EventArgs e)
         {
             string usuaria = UsuariaEntry.Text;
             string email = EmailEntry.Text;
@@ -26,16 +26,18 @@ namespace FEP2024
 
             if (string.IsNullOrWhiteSpace(usuaria) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(senha))
             {
-                DisplayAlert("Erro", "Por favor, Preencha todos os campos!", "OK");
+                await DisplayAlert("Erro", "Por favor, Preencha todos os campos!", "OK");
                 return;
                     }
             Preferences.Set("UserSenha", senha);
             Preferences.Set("UserUsuaria", usuaria);
             Preferences.Set("UserEmail", email);
 
-            DisplayAlert("Sucesso!!", "Conta Criada com Sucesso!", "OK");
+            await Navigation.PopAsync();
+
+            await DisplayAlert("Sucesso!!", "Conta Criada com Sucesso!", "OK");
             return ;
-                Navigation.PopAsync();
+
         }
     }
 }

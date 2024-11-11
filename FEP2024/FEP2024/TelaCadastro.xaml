@@ -1,22 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FEP2024.TelaCadastro">
+             x:Class="FEP2024.TelaCadastro"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        
-        <StackLayout Padding="20" Spacing="10">
+        <StackLayout Padding="10" Spacing="10">
+            <Image Source="IconDagatalPiscando.png" WidthRequest="100" HeightRequest="10"/>
+            <StackLayout TranslationY="100">
             <!--Criação de Usuário-->
-            <Entry x:Name="UsuariaEntry" Placeholder="Crie um nome de Usuária" />
-            
+            <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
+                <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
+                <Entry x:Name="UsuariaEntry" Placeholder="Crie um nome de Usuária" Grid.Column="1" />
+            </Grid>
             <!--Digitação de e-mail-->
-            <Entry x:Name="EmailEntry" Placeholder="Digite seu E-mail" Keyboard="Email"/>
-            
+            <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
+            <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
+            <Entry x:Name="EmailEntry" Placeholder="Digite seu E-mail" Keyboard="Email" Grid.Column="1"/>
+            </Grid>
             <!--Criação de Senha-->
-            <Entry x:Name="SenhaEntry" Placeholder="Crie uma Senha" />
-            
-            <!--Button "Criar Conta" -->
+                <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
+            <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
+            <Entry x:Name="SenhaEntry" Placeholder="Crie uma Senha" Grid.Column="1" />
+                </Grid>
+                <!--Button "Criar Conta" -->
             <Button Text="Criar Conta" x:Name="CriarContaBt" Clicked="CriarContaBt_Clicked"/>
-
+            </StackLayout>
         </StackLayout>
+       
+        
     </ContentPage.Content>
 </ContentPage>
