@@ -2,28 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FEP2024.TelaCadastro"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#f4f4f6"
+             BackgroundImageSource="DesingTelaCadastro.png">
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
-            <Image Source="IconDagatalPiscando.png" WidthRequest="100" HeightRequest="10"/>
-            <StackLayout TranslationY="100">
+            <Image Source="IconDagatalPiscando.png" WidthRequest="100" HeightRequest="200" TranslationY="50"/>
+
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Bem-Vinda!" TextColor="Black" FontSize="45" FontFamily="Poppins"
+                   TranslationY="30" TranslationX="0" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="I.png" WidthRequest="30" TranslationY="25" TranslationX="-20"/>
+            </StackLayout>
+            <StackLayout TranslationY="70">
             <!--Criação de Usuário-->
             <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
-                <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
-                <Entry x:Name="UsuariaEntry" Placeholder="Crie um nome de Usuária" Grid.Column="1" />
-            </Grid>
+                    <Image Source="Icon.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Grid.Column="0"/>
+
+                    <Frame BackgroundColor="White" BorderColor="Black" CornerRadius="80" Grid.Column="1"  Padding="0" >
+                        <Entry x:Name="UsuariaEntry" Placeholder="Crie um nome de Usuária" Grid.Column="1" 
+                               PlaceholderColor="Black" TextColor="Black" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="16"/>
+                    </Frame>
+                </Grid>
             <!--Digitação de e-mail-->
             <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
-            <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
-            <Entry x:Name="EmailEntry" Placeholder="Digite seu E-mail" Keyboard="Email" Grid.Column="1"/>
-            </Grid>
+            <Image Source="EmailIcon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Grid.Column="0"/>
+                
+                    <Frame BackgroundColor="White" BorderColor="Black" CornerRadius="80" Grid.Column="1"  Padding="0" >
+                        
+                    <Entry x:Name="EmailEntry" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="16" 
+                   Placeholder="Digite seu E-mail" Keyboard="Email"  PlaceholderColor="Black" TextColor="Black" />
+                        
+                    </Frame>
+                </Grid>
             <!--Criação de Senha-->
                 <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
-            <Image Source="Icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Grid.Column="0"/>
-            <Entry x:Name="SenhaEntry" Placeholder="Crie uma Senha" Grid.Column="1" />
+                    <Image Source="CadiadoIcon.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Grid.Column="0"/>
+
+                    <Frame BackgroundColor="White" BorderColor="Black" CornerRadius="80" Grid.Column="1"  Padding="0" >
+                        <Entry x:Name="SenhaEntry" Placeholder="Crie uma Senha" Grid.Column="1" 
+                   PlaceholderColor="Black" TextColor="Black" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="16"/>
+                    </Frame>
                 </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <!--Button "Criar Conta" -->
-            <Button Text="Criar Conta" x:Name="CriarContaBt" Clicked="CriarContaBt_Clicked"/>
+            <Button Text="Criar Conta" x:Name="CriarContaBt" Clicked="CriarContaBt_Clicked" 
+                    BackgroundColor="#add8e6" TextColor="Black" 
+                    CornerRadius="100" Margin="0,0,0,30"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
        
