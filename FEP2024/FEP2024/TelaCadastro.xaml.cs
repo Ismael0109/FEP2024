@@ -39,5 +39,11 @@ namespace FEP2024
             return ;
 
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TelaJaPossuiCadastro());
+            
+        }
     }
 }
