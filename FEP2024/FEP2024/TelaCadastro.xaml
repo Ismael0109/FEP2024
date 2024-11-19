@@ -4,7 +4,8 @@
              x:Class="FEP2024.TelaCadastro"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#f4f4f6"
-             BackgroundImageSource="DesingTelaCadastro.png">
+             BackgroundImageSource="DesingTelaCadastro.png"
+             >
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
             <Image Source="IconDagatalPiscando.png" WidthRequest="100" HeightRequest="200" TranslationY="50"/>
@@ -50,6 +51,8 @@
                     BackgroundColor="#add8e6" TextColor="Black" 
                     CornerRadius="100" Margin="0,0,0,30"/>
                 </StackLayout>
+                <Button Text="Já tem uma Conta?" BackgroundColor="Transparent" TextColor="Black"
+                        TranslationX="115" TranslationY="0" FontSize="13" Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>
        

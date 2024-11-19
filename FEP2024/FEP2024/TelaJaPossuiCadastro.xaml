@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.TelaJaPossuiCadastro"
+             NavigationPage.HasNavigationBar="False"
+BackgroundColor="#f4f4f6"
+BackgroundImageSource="DesingTelaJaTemCadastro.png">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10" TranslationY="120">
+            <Image Source="IconDagatalPiscando.png" WidthRequest="100" HeightRequest="200" TranslationY="40"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Bem-Vinda de Volta!" TextColor="Black" FontSize="29" FontFamily="Poppins"
+           TranslationY="30" TranslationX="0" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="I.png" WidthRequest="30" TranslationY="25" TranslationX="-10"/>
+            </StackLayout>
+            <StackLayout TranslationY="70">
+                <!--Criação de Usuário-->
+                <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
+                    <Image Source="Icon.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Grid.Column="0"/>
+
+                    <Frame BackgroundColor="White" BorderColor="Black" CornerRadius="80" Grid.Column="1"  Padding="0" >
+                        <Entry x:Name="UsuariaEntry" Placeholder="Usuária ou E-mail" Grid.Column="1" 
+                       PlaceholderColor="Black" TextColor="Black" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="16"/>
+                    </Frame>
+                </Grid>
+                <!--Digitação de e-mail-->
+                
+                <!--Criação de Senha-->
+                <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,10">
+                    <Image Source="CadiadoIcon.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Grid.Column="0"/>
+
+                    <Frame BackgroundColor="White" BorderColor="Black" CornerRadius="80" Grid.Column="1"  Padding="0" >
+                        <Entry x:Name="SenhaEntry" Placeholder="Senha" Grid.Column="1" 
+           PlaceholderColor="Black" TextColor="Black" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="16"/>
+                    </Frame>
+                </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <!--Button "Criar Conta" -->
+                    <Button Text="Entrar" x:Name="CriarContaBt" Clicked="CriarContaBt_Clicked_1" 
+            BackgroundColor="#add8e6" TextColor="Black" HorizontalOptions="CenterAndExpand"
+            CornerRadius="100" Margin="150,0,0,30"/>
+                    <Button Text="Não tem uma Conta?" BackgroundColor="Transparent" TextColor="Black"
+         TranslationX="-250" TranslationY="-10" FontSize="13" Clicked="Button_Clicked_1"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
