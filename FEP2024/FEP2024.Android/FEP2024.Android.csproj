@@ -85,9 +85,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\drawable\IconDagatalPiscando.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FEP2024\FEP2024.csproj">
       <Project>{50A58321-DDC3-4EA4-A61F-9C9CC459E4C5}</Project>
       <Name>FEP2024</Name>
@@ -95,6 +92,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CadiadoIcon.png" />
+    <AndroidResource Include="Resources\drawable\EmailIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconDagatalPiscando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\DesingTelaCadastro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\I.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
