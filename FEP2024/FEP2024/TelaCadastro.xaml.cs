@@ -57,8 +57,13 @@ namespace FEP2024
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TelaJaPossuiCadastro());
+            await Navigation.PushAsync(new TelaJaPossuiCadastro());
             
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new TelaTutorial());
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.AddTaskPage"
+             NavigationPage.HasNavigationBar="False"
+            Padding="40" 
+             BackgroundColor="#f4f4f6"
+             BackgroundImageSource="DesingTelaAddTarefa.png"
+            >
+    <ContentPage.Content>
+        <StackLayout TranslationY="50" >
+
+            <!-- Entrada para o título da tarefa -->
+            <Label Text="Título da Tarefa" FontAttributes="Bold" TextColor="Black"/>
+            <Entry x:Name="TitleEntry" Placeholder="Título da Tarefa" TextColor="Black" PlaceholderColor="Gray"/>
+
+            <!-- Entrada para a descrição da tarefa -->
+            <Label Text="Descrição" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black"/>
+            <Editor x:Name="DescriptionEditor" Placeholder="Digite a Descrição" HeightRequest="80" TextColor="Black" PlaceholderColor="Gray" 
+                    />
+
+            <!-- Seletor de Hora de Início -->
+            <Label Text="Hora de Início" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black"/>
+            <TimePicker x:Name="StartTimePicker" TextColor="Black" />
+
+            <!-- Seletor de Hora de Fim -->
+            <Label Text="Hora de Fim" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black"/>
+            <TimePicker x:Name="EndTimePicker" TextColor="Black"  />
+
+            <!-- Botão para salvar a tarefa -->
+            <Button Text="Salvar Tarefa"
+                    BackgroundColor="#add8e6"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Margin="0,20,0,0"
+                    x:Name="btSalvarTarefa"
+                    Clicked="btSalvarTarefa_Clicked"/>
+            <Button Text="Visualizar Tarefas do dia" Clicked="btIrParaTelaTarefasDoDia_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

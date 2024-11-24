@@ -33,7 +33,7 @@ namespace FEP2024
             if (user != null)
             {
                 // Se as credenciais estiverem corretas, navegue para outra página
-                await Navigation.PushAsync(new MainPage()); // Substitua "MainPage" com a página de destino
+                await Navigation.PushAsync(new CalendarPage()); // Substitua "MainPage" com a página de destino
                 await DisplayAlert("Bem Vinda de Volta", "Você Agora pode prosseguir ", "OK");
             }
             else
@@ -51,6 +51,11 @@ namespace FEP2024
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TelaCadastro());
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new TelaTutorial());
         }
     }
 }
