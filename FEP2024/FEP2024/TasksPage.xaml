@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.TasksPage"
+             Title="Tarefas do Dia"
+             BackgroundColor="#f4f4f6">
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <!-- Cabeçalho mostrando a data -->
+            <Label x:Name="SelectedDateLabel"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,10,0,20"
+                   FontAttributes="Bold" />
+
+            <!-- Lista de Tarefas -->
+            <ListView x:Name="TasksListView"
+                      HasUnevenRows="True"
+                      SeparatorColor="#cccccc">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <!-- Título da Tarefa -->
+                                <Label Text="{Binding Title}"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       FontAttributes="Bold" />
+
+                                <!-- Descrição da Tarefa -->
+                                <Label Text="{Binding Description}"
+                                       FontSize="16"
+                                       TextColor="Gray" />
+
+                                <!-- Hora de Início e Fim -->
+                                <Label Text="{Binding TimeRange}"
+                                       FontSize="14"
+                                       TextColor="DarkGray" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

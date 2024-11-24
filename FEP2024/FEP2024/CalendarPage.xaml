@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.CalendarPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#f4f4f6">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Cabeçalho do Calendário -->
+            <Grid Padding="10" BackgroundColor="#E0E0E0">
+                <!-- Ícone e mês/ano -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                       Source="IconDagatalPiscando.png"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start" />
+
+                <Label Grid.Column="1"
+                       Text="{Binding CurrentMonthYear}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="25"
+                       TextColor="Black" 
+                       HorizontalTextAlignment="Center"/>
+
+               
+            </Grid>
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
+                <!-- Botões de Navegação de Mês -->
+                <Button Text="&lt;"
+             Clicked="btMesAnterior_Clicked"
+             x:Name="btMesAnterior"
+             BackgroundColor="Transparent"
+             TextColor="#add8e6"
+             FontSize="45" 
+             FontAttributes="Bold"/>
+
+                <Button Text="&gt;"
+             Clicked="btMesPosterior_Clicked"
+             x:Name="btMesPosterior"
+             BackgroundColor="Transparent"
+             TextColor="#add8e6"
+             FontSize="45"
+             FontAttributes="Bold"/>
+            </StackLayout>
+            
+            <!-- Grade do Calendário -->
+            <Grid x:Name="CalendarGrid" Padding="10" VerticalOptions="FillAndExpand" IsVisible="True">
+                <!-- Defina as linhas e colunas do Grid -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <!-- Linha para os dias da semana -->
+                    <RowDefinition Height="*" />
+                    <!-- Linha para o calendário -->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Cabeçalho com os dias da semana -->
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="0" IsVisible="True">
+                    <Label Text="Dom" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Margin="5,0" IsVisible="True"/>
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="1">
+                    <Label Text="Seg" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="2">
+                    <Label Text="Ter" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="3">
+                    <Label Text="Qua" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="4">
+                    <Label Text="Qui" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="5">
+                    <Label Text="Sex" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+                <Frame Padding="0" BackgroundColor="#add8e6" CornerRadius="10" Grid.Row="0" Grid.Column="6">
+                    <Label Text="Sáb" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                </Frame>
+
+                <!-- Outras linhas do Grid para os dias do calendário serão adicionadas aqui -->
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

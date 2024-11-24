@@ -12,7 +12,11 @@ BackgroundImageSource="DesingTelaJaTemCadastro.png">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Bem-Vinda de Volta!" TextColor="Black" FontSize="29" FontFamily="Poppins"
            TranslationY="30" TranslationX="0" HorizontalOptions="CenterAndExpand"/>
-                <Image Source="I.png" WidthRequest="30" TranslationY="25" TranslationX="-10"/>
+                <Image Source="I.png" WidthRequest="30" TranslationY="25" TranslationX="-10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
             <StackLayout TranslationY="70">
                 

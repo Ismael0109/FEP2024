@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FEP2024.TelaTutorial">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Mais Informações 
+                   em Breve..." FontSize="30" VerticalOptions="Center"/>
+            <Button Text="OK" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
