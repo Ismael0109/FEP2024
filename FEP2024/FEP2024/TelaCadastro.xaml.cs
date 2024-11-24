@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
+using AppNamespace;
 
 namespace FEP2024
 {
@@ -29,14 +30,28 @@ namespace FEP2024
                 await DisplayAlert("Erro", "Por favor, Preencha todos os campos!", "OK");
                 return;
                     }
-            Preferences.Set("UserSenha", senha);
-            Preferences.Set("UserUsuaria", usuaria);
-            Preferences.Set("UserEmail", email);
+            User newUser = new User
+            {
+                Username = usuaria,
+                Email = email,
+                Senha = senha
+            };
 
-            await Navigation.PopAsync();
+            try
+            {
+                // Tenta salvar o usuário no banco de dados
+                await App.Database.SaveUserAsync(newUser);
+                await DisplayAlert("Sucesso", "Usuário registrado com sucesso!", "OK");
 
-            await DisplayAlert("Sucesso!!", "Conta Criada com Sucesso!", "OK");
-            return ;
+                // Navega para a tela de login ou outra página após o registro
+                await Navigation.PopAsync(); // Volta para a página anterior (LoginPage)
+            }
+            catch (Exception ex)
+            {
+                // Exibe mensagem de erro caso haja problema ao salvar (ex: duplicação)
+                await DisplayAlert("Erro", $"Erro ao registrar o usuário: {ex.Message}", "OK");
+            }
+
 
         }
 
