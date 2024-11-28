@@ -1,13 +1,6 @@
 ﻿using AppNamespace.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
 using Xamarin.Forms;
-
 using Xamarin.Forms.Xaml;
 
 namespace FEP2024
@@ -21,38 +14,29 @@ namespace FEP2024
         public TasksPage(DateTime selectedDate, Database database)
         {
             InitializeComponent();
-            
             _selectedDate = selectedDate;
             _database = database;
-
-            BindingContext = this; // Para garantir que o binding esteja funcional
-            LoadTasks();           // Método que carrega as tarefas para aquele dia
+            BindingContext = this;
+            LoadTasks();
         }
 
         private async void LoadTasks()
         {
-            // Carrega as tarefas a partir do banco de dados para a data selecionada
             var tasks = await _database.GetTasksByDate(_selectedDate);
-
-            // Certifique-se de que "tasks" é uma lista de TaskItem
             TasksListView.ItemsSource = tasks;
         }
 
         private void TasksListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-           
         }
 
         private async void TasksListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            // Verifique se o item é do tipo TaskItem antes de fazer o cast
             if (e.Item is TaskItem selectedTask)
             {
-                // Formatar as horas de início e término
                 string startTimeFormatted = selectedTask.StartTime.ToString(@"hh\:mm");
                 string endTimeFormatted = selectedTask.EndTime.ToString(@"hh\:mm");
 
-                // Exibir um alerta com as horas da tarefa
                 await DisplayAlert("Detalhes da Tarefa",
                     $"Tarefa: {selectedTask.Title}\nInício: {startTimeFormatted}\nTérmino: {endTimeFormatted}\nDescrição: {selectedTask.Description}",
                     "OK");
@@ -62,8 +46,29 @@ namespace FEP2024
                 await DisplayAlert("Erro", "O tipo de item selecionado não é válido.", "OK");
             }
         }
-    }
+
+        // Função para apagar a tarefa
+        private async void DeleteTaskButton_Clicked(object sender, EventArgs e)
+        {
+            if (TasksListView.SelectedItem is TaskItem selectedTask)
+            {
+                bool confirm = await DisplayAlert("Confirmação", $"Deseja apagar a tarefa \"{selectedTask.Title}\"?", "Sim", "Não");
+                if (confirm)
+                {
+                    await _database.DeleteTaskAsync(selectedTask);
+                    await DisplayAlert("Sucesso", "Tarefa apagada com sucesso!", "OK");
+                    LoadTasks(); // Recarrega a lista de tarefas
+                }
+            }
+            else
+            {
+                await DisplayAlert("Erro", "Nenhuma tarefa selecionada!", "OK");
+            }
+
+        }
+      
+        }
     }
 
 
-    
+

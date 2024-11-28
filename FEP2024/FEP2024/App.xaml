@@ -2,8 +2,12 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FEP2024.App"
+             xmlns:local="clr-namespace:FEP2024"
              >
     <Application.Resources>
-
+        <ResourceDictionary>
+            <!-- Adicione a referência correta ao seu NullToBoolConverter -->
+            <local:NullToBoolConverter x:Key="NullToBoolConverter" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
