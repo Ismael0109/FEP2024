@@ -36,7 +36,12 @@
                     Margin="0,20,0,0"
                     x:Name="btSalvarTarefa"
                     Clicked="btSalvarTarefa_Clicked"/>
-            <Button Text="Visualizar Tarefas do dia" Clicked="btIrParaTelaTarefasDoDia_Clicked" />
+            <Button Text="Visualizar Tarefas do dia" Clicked="btIrParaTelaTarefasDoDia_Clicked" 
+                    BackgroundColor="#e0b0ff"
+TextColor="White"
+CornerRadius="10"
+FontAttributes="Bold"
+Margin="0,20,0,0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

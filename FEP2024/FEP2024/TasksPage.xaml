@@ -7,19 +7,50 @@
              BackgroundColor="#f4f4f6">
 
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="TasksListView" SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding Tasks}" ItemTapped="TasksListView_ItemTapped" >
-                
+        <ScrollView>
+        <StackLayout >
+            
+            <ListView x:Name="TasksListView"
+                      SelectedItem="{Binding SelectedTask}"
+                      ItemsSource="{Binding Tasks}"
+                      ItemTapped="TasksListView_ItemTapped"
+                      SelectionMode="Single"
+                      TranslationX="20" VerticalOptions="FillAndExpand"
+                      HeightRequest="300"
+                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}" Detail="{Binding Description}" TextColor="Black" DetailColor="#e0b0ff" />
+                        <ViewCell>
+                                <Frame BackgroundColor="#e0b0ff" Padding="1">
+                                <Frame Padding="0" TranslationX="0"  BackgroundColor="#f4f4f6">
+                                <Frame.Triggers>
+                                    <!-- Muda a cor de fundo quando o item é selecionado -->
+                                    <Trigger TargetType="Frame" Property="IsFocused" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#e0b0ff" />
+                                    </Trigger>
+                                </Frame.Triggers>
+                                    
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" TranslationX="10" TranslationY="10" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                                    
+                                </StackLayout>
+                            </Frame>
+                                </Frame>
+                            </ViewCell>
                     </DataTemplate>
-                    
                 </ListView.ItemTemplate>
-               
-
-
             </ListView>
-        </StackLayout>
+                <Button Text="Apagar Tarefa"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="DeleteTaskButton_Clicked"
+                    Padding="0"
+                        IsVisible="True"
+                        HorizontalOptions="Center"
+                VerticalOptions="End"
+                    IsEnabled="{Binding SelectedTask, Converter={StaticResource NullToBoolConverter}}"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
