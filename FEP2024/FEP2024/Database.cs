@@ -19,7 +19,6 @@ namespace FEP2024
             _database.CreateTableAsync<User>().Wait(); // Cria a tabela de usuários se não existir
             _database.CreateTableAsync<TaskModel>().Wait();
             _database.CreateTableAsync<TaskItem>().Wait();
-           
         }
 
         // Método para inserir um novo usuário
@@ -41,6 +40,7 @@ namespace FEP2024
                             .Where(u => (u.Username == usernameOrEmail || u.Email == usernameOrEmail) && u.Senha == password)
                             .FirstOrDefaultAsync();
         }
+
         // Método para salvar uma nova tarefa no banco de dados
         public Task<int> SaveTaskAsync(TaskItem task)
         {
@@ -73,23 +73,21 @@ namespace FEP2024
         {
             return _database.DeleteAsync(task);
         }
+
         // Método para buscar tarefas de uma data específica
-        public Task<List<TaskModel>> GetTasksForDateAsync(DateTime date)
+        public Task<List<TaskItem>> GetTasksByDate(DateTime date)
         {
-            // Busque tarefas que coincidem com a data selecionada
-            return _database.Table<TaskModel>()
-                            .Where(t => t.Date.Date == date.Date)
+            // Ajuste para lidar com intervalo de tempo no SQLite
+            var startOfDay = date.Date;
+            var endOfDay = date.Date.AddDays(1).AddTicks(-1);
+
+            return _database.Table<TaskItem>()
+                            .Where(t => t.Date >= startOfDay && t.Date <= endOfDay)
                             .ToListAsync();
-        }
-        public async Task<List<TaskItem>> GetTasksForDate(DateTime date)
-        {
-            // Obter as tarefas com base na data
-            var tasks = await _database.Table<TaskItem>()
-                                        .Where(t => t.Date.Date == date.Date)
-                                        .ToListAsync();
-            return tasks;
         }
     }
 }
-    
+
+
+
 

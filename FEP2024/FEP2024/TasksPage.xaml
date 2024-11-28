@@ -3,45 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FEP2024.TasksPage"
              Title="Tarefas do Dia"
+             BackgroundImageSource="DesingTelaVisualizarTarefas.png"
              BackgroundColor="#f4f4f6">
 
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <!-- Cabeçalho mostrando a data -->
-            <Label x:Name="SelectedDateLabel"
-                   FontSize="24"
-                   HorizontalOptions="Center"
-                   TextColor="Black"
-                   Margin="0,10,0,20"
-                   FontAttributes="Bold" />
-
-            <!-- Lista de Tarefas -->
-            <ListView x:Name="TasksListView"
-                      HasUnevenRows="True"
-                      SeparatorColor="#cccccc">
+        <StackLayout>
+            <ListView x:Name="TasksListView" SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding Tasks}" ItemTapped="TasksListView_ItemTapped" >
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <!-- Título da Tarefa -->
-                                <Label Text="{Binding Title}"
-                                       FontSize="20"
-                                       TextColor="Black"
-                                       FontAttributes="Bold" />
-
-                                <!-- Descrição da Tarefa -->
-                                <Label Text="{Binding Description}"
-                                       FontSize="16"
-                                       TextColor="Gray" />
-
-                                <!-- Hora de Início e Fim -->
-                                <Label Text="{Binding TimeRange}"
-                                       FontSize="14"
-                                       TextColor="DarkGray" />
-                            </StackLayout>
-                        </ViewCell>
+                        <TextCell Text="{Binding Title}" Detail="{Binding Description}" TextColor="Black" DetailColor="#e0b0ff" />
                     </DataTemplate>
+                    
                 </ListView.ItemTemplate>
+               
+
+
             </ListView>
         </StackLayout>
     </ContentPage.Content>

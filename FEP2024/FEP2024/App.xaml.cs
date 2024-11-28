@@ -29,7 +29,11 @@ namespace FEP2024
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#add8e6")
+            };
+           
         }
 
         protected override void OnStart()

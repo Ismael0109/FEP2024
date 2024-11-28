@@ -75,8 +75,17 @@ namespace FEP2024
 
         private async void btIrParaTelaTarefasDoDia_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TasksPage(_selectedDate, _database));
+            try
+            {
+                var selectedDate = new DateTime(_selectedYear, _selectedMonth, _selectedDay);
+                await Navigation.PushAsync(new TasksPage(selectedDate, _database));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                await DisplayAlert("Erro", "Data inválida!", "OK");
+            }
         }
+
     }
 }
     
