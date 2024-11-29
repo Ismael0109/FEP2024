@@ -29,7 +29,7 @@ namespace FEP2024
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage())
+            MainPage = new NavigationPage(new TelaCadastro())
             {
                 BarBackgroundColor = Color.FromHex("#add8e6")
             };

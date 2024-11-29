@@ -139,5 +139,10 @@ namespace FEP2024
             OnPropertyChanged(nameof(CurrentMonthYear));
             FillCalendar();
         }
-            } } 
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TelaPrincipal());
+        }
+    } } 
     

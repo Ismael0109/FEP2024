@@ -32,7 +32,7 @@ namespace FEP2024
 
         private void btLuisa_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new TelaPrincipal());
         }
 
         private void btMi_Clicked(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace FEP2024
                 await DisplayAlert("Sucesso", "Usuário registrado com sucesso!", "OK");
 
                 // Navega para a tela de login ou outra página após o registro
-                await Navigation.PopAsync(); // Volta para a página anterior (LoginPage)
+                await Navigation.PushAsync(new TelaJaPossuiCadastro()); // Volta para a página anterior (LoginPage)
             }
             catch (Exception ex)
             {
