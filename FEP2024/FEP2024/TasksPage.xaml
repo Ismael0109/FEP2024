@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FEP2024.TasksPage"
              Title="Tarefas do Dia"
-             BackgroundImageSource="DesingTelaVisualizarTarefas.png"
+             BackgroundImageSource="DesignTelaVisualizarTarefas.png"
              BackgroundColor="#f4f4f6">
 
     <ContentPage.Content>

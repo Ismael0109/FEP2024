@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			BarBackgroundColor="#e0b0ff"
+			
+             x:Class="FEP2024.TelaPrincipal"
+			
+			>
+	
+  <!--Pages can be added as references or inline-->
+	<ContentPage Title="ChatBot"  BackgroundImageSource="DesingTelaChat.png"
+ BackgroundColor="#f4f4f6">
+		<StackLayout Padding="10" Spacing="10">
+			<!-- Lista de Mensagens -->
+			<CollectionView x:Name="MessagesCollection" HeightRequest="400">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Margin="5" Spacing="2">
+							<Label Text="{Binding Sender}" FontAttributes="Bold" TextColor="Black"/>
+							<Label Text="{Binding Text}" TextColor="Black"/>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+
+			<!-- Caixa de Entrada e Botão -->
+			<StackLayout Orientation="Horizontal" Spacing="8" VerticalOptions="EndAndExpand" >
+				<Entry x:Name="MessageEntry" Placeholder="Digite sua mensagem..." PlaceholderColor="Black" TextColor="Black"
+               HorizontalOptions="FillAndExpand"/>
+				<Button Text="Enviar" WidthRequest="80" Clicked="SendButton_Click" HorizontalOptions="FillAndExpand" BackgroundColor="#e0b0ff" CornerRadius="20"/>
+			</StackLayout>
+		</StackLayout>
+	</ContentPage>
+	
+	
+	<ContentPage Title="Tab 2" />
+  
+</TabbedPage>
